@@ -1,25 +1,22 @@
-# The release workflow of cgaube/local-env updates the version, the release
-# tag in the URLs and the two checksums: don't change those by hand.
+# The release workflow of cgaube/local-env updates the version, the release tag
+# in the URL and the checksum: don't change those by hand.
 class LocalEnv < Formula
   desc "HTTPS *.dev.test for your containers, plus templates from your git repos"
   homepage "https://github.com/cgaube/local-env"
-  if Hardware::CPU.arm?
-    url "https://github.com/cgaube/local-env/releases/download/v0.1.0/local-env-darwin-arm64"
-    sha256 "0000000000000000000000000000000000000000000000000000000000000000"
-  else
-    url "https://github.com/cgaube/local-env/releases/download/v0.1.0/local-env-darwin-x64"
-    sha256 "0000000000000000000000000000000000000000000000000000000000000000"
-  end
+  url "https://github.com/cgaube/local-env/releases/download/v0.1.0/local-env-darwin-arm64"
   version "0.1.0"
+  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
   license "MIT"
 
+  # Apple Silicon only
+  depends_on arch: :arm64
   # local-env setup configures them: wildcard DNS and the local certificates
   depends_on "dnsmasq"
   depends_on :macos
   depends_on "mkcert"
 
   def install
-    bin.install Dir["local-env-darwin-*"].first => "local-env"
+    bin.install "local-env-darwin-arm64" => "local-env"
   end
 
   test do
