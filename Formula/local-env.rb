@@ -3,20 +3,20 @@
 class LocalEnv < Formula
   desc "HTTPS *.dev.test for your containers, plus templates from your git repos"
   homepage "https://github.com/cgaube/local-env"
-  url "https://github.com/cgaube/local-env/releases/download/v0.1.0/local-env-darwin-arm64"
+  url "https://github.com/cgaube/local-env/releases/download/v0.1.0/local-env"
   version "0.1.0"
   sha256 "0000000000000000000000000000000000000000000000000000000000000000"
   license "MIT"
 
-  # Apple Silicon only
+  # Apple Silicon Macs only. local-env setup configures dnsmasq (wildcard
+  # DNS) and mkcert (local certificates).
   depends_on arch: :arm64
-  # local-env setup configures them: wildcard DNS and the local certificates
   depends_on "dnsmasq"
   depends_on :macos
   depends_on "mkcert"
 
   def install
-    bin.install "local-env-darwin-arm64" => "local-env"
+    bin.install "local-env"
   end
 
   test do
