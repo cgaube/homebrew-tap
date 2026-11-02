@@ -14,6 +14,7 @@ class LocalEnv < Formula
   depends_on "dnsmasq"
   depends_on :macos
   depends_on "mkcert"
+  depends_on "ansible"
 
   def install
     bin.install "local-env"
