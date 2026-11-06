@@ -3,9 +3,9 @@
 class LocalEnv < Formula
   desc "HTTPS *.dev.test for your containers, plus templates from your git repos"
   homepage "https://github.com/cgaube/local-env"
-  url "https://github.com/cgaube/local-env/releases/download/v0.6.0/local-env"
-  version "0.6.0"
-  sha256 "b4be652a6fdc172007f4f7ef2cb3f6cafbd8df1a9b1f2229e5ce7c92be011f47"
+  url "https://github.com/cgaube/local-env/releases/download/v0.6.1/local-env"
+  version "0.6.1"
+  sha256 "4e88db2859285be46f340b7f91427f3fadd700eeb991b35ad6a1d7359a86cf13"
   license "MIT"
 
   # Apple Silicon Macs only. local-env setup configures dnsmasq (wildcard
